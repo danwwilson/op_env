@@ -39,9 +39,6 @@ COPY fonts /usr/share/fonts
 COPY fonts /etc/rstudio/fonts
 RUN fc-cache -f -v
 
-## build ARGs
-NCPUS=${NCPUS:-1}
-
 ## Install tools to support desired packages
 RUN apt-get update \
   && apt-get install -y --no-install-recommends \
@@ -71,7 +68,7 @@ RUN apt-get update \
   && rm -rf /var/lib/apt/lists/*
 
 ## add regularly used packages
-install2.r --error --skipinstalled -r $CRAN -n $NCPUS \
+install2.r --error --skipinstalled -r $CRAN \
   devtools \
   rmarkdown \
   RcppEigen \
