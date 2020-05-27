@@ -1,4 +1,4 @@
-FROM FROM rocker/r-ver:4.0.0
+FROM rocker/r-ver:4.0.0
 
 ## Built from templates created by the Rocker Project
 ## For more information https://www.rocker-project.org
