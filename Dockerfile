@@ -68,7 +68,7 @@ RUN apt-get update \
   && rm -rf /var/lib/apt/lists/*
 
 ## add regularly used packages
-install2.r --error --skipinstalled -r $CRAN \
+RUN install2.r --error --skipinstalled -r $CRAN \
   devtools \
   rmarkdown \
   RcppEigen \
