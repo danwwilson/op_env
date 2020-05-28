@@ -12,8 +12,10 @@
         ],
         "tabSet1": [
             "Environment",
+            "History",
             "Connections",
             "Build",
+            "Tutorial",
             "Presentation"
         ],
         "tabSet2": [
@@ -23,10 +25,6 @@
             "Help",
             "VCS",
             "Viewer"
-        ],
-        "hiddenTabSet": [
-            "History",
-            "Tutorial"
         ],
         "console_left_on_top": false,
         "console_right_on_top": true
@@ -40,5 +38,6 @@
     "restore_last_project": false,
     "syntax_color_console": true,
     "auto_append_newline": true,
-    "strip_trailing_whitespace": true
-}
+    "strip_trailing_whitespace": true,
+    "use_tinytex": true,
+    "spelling_dictionary_language": "en_AU"

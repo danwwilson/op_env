@@ -28,7 +28,10 @@ RUN /rocker_scripts/install_rstudio.sh
 RUN /rocker_scripts/install_pandoc.sh
 RUN /rocker_scripts/install_verse.sh
 
-RUN mkdir -p /home/rstudio/.config/rstudio/keybindings/
+RUN mkdir -p /home/rstudio/.config/rstudio/keybindings/ \
+## open permissions to avoid needless warnings
+  chown -R rstudio:staff /home/rstudio/ \
+  chmod -R 777 /home/rstudio/
 
 COPY settings/addins.json /home/rstudio/.config/rstudio/keybindings/
 COPY settings/rstudio-prefs.json /home/rstudio/.config/rstudio/
