@@ -111,3 +111,7 @@ RUN install2.r --error --skipinstalled -r $CRAN \
 ## Add /data volume by default
 VOLUME /data
 VOLUME /home/rstudio/.ssh
+
+EXPOSE 8787
+
+CMD /init
