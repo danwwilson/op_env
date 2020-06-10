@@ -8,7 +8,7 @@ LABEL org.label-schema.license="GPL-2.0" \
       maintainer="Dan Wilson <dan@thedatacollective.com.au>"
 
 ## This allows for direct access to rstudio server without passwords
-## Do not use the below environment variables if placing on publicly 
+## Do not use the below environment variables if placing on publicly
 ## exposed server (e.g. Amazon AWS)
 ENV ROOT=TRUE
 ENV PASSWORD=password
@@ -21,20 +21,21 @@ ENV RSTUDIO_VERSION=latest
 ENV PATH=/usr/lib/rstudio-server/bin:$PATH
 
 RUN apt-get update \
-&&  apt-get install -y --no-install-recommends \ 
+&&  apt-get install -y --no-install-recommends \
   libpq5
 
 RUN /rocker_scripts/install_rstudio.sh
 RUN /rocker_scripts/install_pandoc.sh
 RUN /rocker_scripts/install_verse.sh
 
-RUN mkdir -p /home/rstudio/.config/rstudio/keybindings/ \
-## open permissions to avoid needless warnings
-  && chown -R rstudio:staff /home/rstudio/ \
-  && chmod -R 777 /home/rstudio/
+RUN mkdir -p /home/rstudio/.config/rstudio/keybindings/
 
 COPY settings/addins.json /home/rstudio/.config/rstudio/keybindings/
 COPY settings/rstudio-prefs.json /home/rstudio/.config/rstudio/
+
+## update permissions to avoid needless warnings
+RUN chown -R rstudio:staff /home/rstudio/ \
+  && chmod -R 777 /home/rstudio/
 
 ## copy fonts to make available for use in rstudio and documents
 ## Update font cache once copied
