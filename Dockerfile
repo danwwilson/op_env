@@ -93,18 +93,16 @@ RUN install2.r --error --skipinstalled -r $CRAN \
   && R -e 'remotes::install_github("StevenMMortimer/salesforcer")' \
   && R -e 'remotes::install_github("milesmcbain/fnmate")' \
   && R -e 'remotes::install_github("gaborcsardi/dotenv")' \
+  && R -e 'remotes::install_github("r-lib/hugodown")' \
   && R -e 'install.packages("data.table", type = "source", repos = "http://Rdatatable.github.io/data.table")' \
   && rm -rf /tmp/downloaded_packages/ \
   && rm -rf /tmp/*.tar.gz
 
-RUN mkdir -p /home/rstudio/.config/rstudio/keybindings/
+RUN mkdir -p etc/rstudio/keybindings/
 
-COPY settings/addins.json /home/rstudio/.config/rstudio/keybindings/
-COPY settings/rstudio-prefs.json /home/rstudio/.config/rstudio/
-
-## update permissions to avoid needless warnings
-RUN chown -R rstudio:staff /home/rstudio/ \
-  && chmod -R 777 /home/rstudio/
+# put settings into main rstudio folders
+COPY settings/addins.json etc/rstudio/keybindings/
+COPY settings/rstudio-prefs.json etc/rstudio/
 
 ## copy fonts to make available for use in rstudio and documents
 ## Update font cache once copied
