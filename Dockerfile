@@ -85,6 +85,7 @@ RUN install2.r --error --skipinstalled -r $CRAN \
   secret \
   XLConnect \
   fst \
+  conflicted \
   && R -e 'remotes::install_gitlab("thedatacollective/segmentr")' \
   && R -e 'remotes::install_github("wilkelab/gridtext")' \
   && R -e 'remotes::install_github("danwwilson/hrbrthemes", "dollar_axes")' \
