@@ -100,7 +100,8 @@ RUN install2.r --error --skipinstalled -r $CRAN \
   && rm -rf /tmp/downloaded_packages/ \
   && rm -rf /tmp/*.tar.gz
 
-RUN mkdir -p etc/rstudio/keybindings/
+RUN mkdir -p etc/rstudio/keybindings/ \
+  rm -r /home/rstudio/.rstudio/monitored/user-settings
 
 # put settings into main rstudio folders
 COPY settings/addins.json etc/rstudio/keybindings/
