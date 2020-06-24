@@ -95,14 +95,14 @@ RUN install2.r --error --skipinstalled -r $CRAN \
   && R -e 'remotes::install_github("StevenMMortimer/salesforcer")' \
   && R -e 'remotes::install_github("milesmcbain/fnmate")' \
   && R -e 'remotes::install_github("milesmcbain/capsule")' \
-#  && R -e 'remotes::install_github("gaborcsardi/dotenv")' \
+##  && R -e 'remotes::install_github("gaborcsardi/dotenv")' \
   && R -e 'remotes::install_github("r-lib/hugodown")' \
   && R -e 'install.packages("data.table", type = "source", repos = "http://Rdatatable.github.io/data.table")' \
   && rm -rf /tmp/downloaded_packages/ \
   && rm -rf /tmp/*.tar.gz
 
 RUN mkdir -p etc/rstudio/keybindings/ \
- && rm -r /home/rstudio/.rstudio/monitored/user-settings \""
+ && rm -r /home/rstudio/.rstudio/monitored/user-settings \
  mkdir -p /home/rstudio/.config/rstudio/keybindings/
 
 # put settings into main rstudio folders
