@@ -102,10 +102,14 @@ RUN install2.r --error --skipinstalled -r $CRAN \
 
 RUN mkdir -p etc/rstudio/keybindings/ \
  && rm -r /home/rstudio/.rstudio/monitored/user-settings
+ mkdir -p /home/rstudio/.config/rstudio/keybindings/
 
 # put settings into main rstudio folders
-COPY settings/addins.json etc/rstudio/keybindings/
+COPY settings/addins.json /home/rstudio/.rstudio/keybindings
 COPY settings/rstudio-prefs.json etc/rstudio/
+
+RUN chown -R rstudio:staff /home/rstudio/ \
+   && chmod -R 777 /home/rstudio/
 
 ## copy fonts to make available for use in rstudio and documents
 ## Update font cache once copied
