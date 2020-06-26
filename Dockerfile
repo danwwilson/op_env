@@ -106,7 +106,7 @@ RUN mkdir -p etc/rstudio/keybindings/ \
  && mkdir -p /home/rstudio/.config/rstudio/keybindings/
 
 # put settings into main rstudio folders
-COPY settings/addins.json /home/rstudio/.rstudio/keybindings
+COPY settings/addins.json /home/rstudio/.config/rstudio/keybindings/
 COPY settings/rstudio-prefs.json etc/rstudio/
 
 RUN chown -R rstudio:staff /home/rstudio/ \
