@@ -87,7 +87,7 @@ RUN install2.r --error --skipinstalled -r $CRAN \
   fst \
   conflicted \
   dotenv \
-  && R -e 'remotes::install_github("tidyverse/tibble")' \
+  && R -e 'remotes::install_github("tidyverse/tidyverse")' \
   && R -e 'remotes::install_gitlab("thedatacollective/segmentr")' \
   && R -e 'remotes::install_github("wilkelab/gridtext")' \
   && R -e 'remotes::install_github("danwwilson/hrbrthemes", "dollar_axes")' \
