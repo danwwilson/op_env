@@ -93,7 +93,8 @@ RUN install2.r --error --skipinstalled -r $CRAN \
   && R -e 'remotes::install_github("danwwilson/hrbrthemes", "dollar_axes")' \
   && R -e 'remotes::install_github("thedatacollective/tdcthemes")' \
   && R -e 'remotes::install_gitlab("thedatacollective/templatermd")' \
-  && R -e 'remotes::install_github("stevenMMortimer/salesforcer", ref = "main", upgrade = "always")' \
+##  && R -e 'remotes::install_github("stevenMMortimer/salesforcer", ref = "main")' \
+  && R -e 'remotes::install_version("salesforcer", version = "0.1.4", repos = "http://cran.us.r-project.org")' \
   && R -e 'remotes::install_github("milesmcbain/fnmate")' \
   && R -e 'remotes::install_github("milesmcbain/capsule")' \
 ##  && R -e 'remotes::install_github("gaborcsardi/dotenv")' \
