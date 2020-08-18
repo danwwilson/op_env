@@ -105,12 +105,15 @@ RUN install2.r --error --skipinstalled -r $CRAN \
 
 RUN mkdir -p etc/rstudio/keybindings/ \
  && rm -r /home/rstudio/.rstudio/monitored/user-settings \
- && mkdir -p /home/rstudio/.config/rstudio/keybindings/
+ && mkdir -p /home/rstudio/.config/rstudio/keybindings/ \
+ && echo 'auth-timeout-minutes=0 \
+          \nauth-stay-signed-in-days=30' \
+          > /etc/rstudio/rserver.conf
 
 # put settings into main rstudio folders
 COPY settings/addins.json /home/rstudio/.config/rstudio/keybindings/
 COPY settings/rstudio-prefs.json etc/rstudio/
-COPY settings/rserver.conf etc/rstudio/
+##COPY settings/rserver.conf etc/rstudio/
 
 RUN chown -R rstudio:staff /home/rstudio/ \
    && chmod -R 777 /home/rstudio/
