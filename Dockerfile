@@ -17,7 +17,7 @@ ENV TZ=Australia/Brisbane
 
 ## Variables for the installation of RStudio
 ENV S6_VERSION=v1.21.7.0
-ENV RSTUDIO_VERSION=latest
+ENV RSTUDIO_VERSION=daily
 ENV PATH=/usr/lib/rstudio-server/bin:$PATH
 
 RUN apt-get update \
