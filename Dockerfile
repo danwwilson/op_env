@@ -98,7 +98,7 @@ RUN install2.r --error --skipinstalled -r $CRAN \
   && R -e 'remotes::install_github("milesmcbain/fnmate")' \
   && R -e 'remotes::install_github("milesmcbain/capsule")' \
 ##  && R -e 'remotes::install_github("gaborcsardi/dotenv")' \
-  && R -e 'remotes::install_github("r-lib/hugodown")' \
+##  && R -e 'remotes::install_github("r-lib/hugodown")' \
   && rm -rf /tmp/downloaded_packages/ \
   && rm -rf /tmp/*.tar.gz
 
