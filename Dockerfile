@@ -87,6 +87,7 @@ RUN install2.r --error --skipinstalled -r $CRAN \
   fst \
   conflicted \
   dotenv \
+  && R -e 'install.packages("data.table", type = "source", repos = "http://Rdatatable.github.io/data.table")' \
   && R -e 'remotes::install_github("tidyverse/tidyverse")' \
   && R -e 'remotes::install_gitlab("thedatacollective/tdcfun")' \
   && R -e 'remotes::install_github("wilkelab/gridtext")' \
@@ -98,7 +99,6 @@ RUN install2.r --error --skipinstalled -r $CRAN \
   && R -e 'remotes::install_github("milesmcbain/capsule")' \
 ##  && R -e 'remotes::install_github("gaborcsardi/dotenv")' \
   && R -e 'remotes::install_github("r-lib/hugodown")' \
-  && R -e 'install.packages("data.table", type = "source", repos = "http://Rdatatable.github.io/data.table")' \
   && rm -rf /tmp/downloaded_packages/ \
   && rm -rf /tmp/*.tar.gz
 
