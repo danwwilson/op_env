@@ -40,6 +40,7 @@ RUN apt-get update \
     libpq-dev \
     libsqlite3-dev \
     libssh2-1-dev \
+    ssh \
     unixodbc-dev \
     openssh-client \
     mdbtools \
