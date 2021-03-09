@@ -129,5 +129,6 @@ VOLUME /data
 VOLUME /home/rstudio/.ssh
 
 EXPOSE 8787
+EXPOSE 22
 
 CMD /init
