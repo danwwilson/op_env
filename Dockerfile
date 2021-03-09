@@ -49,10 +49,12 @@ RUN apt-get update \
     automake \
     libtool \
     python-dev \
+    python3-pip \
     pkg-config \
     p7zip-full \
     libudunits2-dev \
     tzdata \
+  && pip3 install -U radian \
   && ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone \
   && dpkg-reconfigure -f noninteractive tzdata \
   && rm -rf /var/lib/apt/lists/*
@@ -88,6 +90,9 @@ RUN install2.r --error --skipinstalled -r $CRAN \
   fst \
   conflicted \
   dotenv \
+  languageserver \
+  ## duckdb \
+  pointblank \
   && R -e 'install.packages("data.table", type = "source", repos = "http://Rdatatable.github.io/data.table")' \
   && R -e 'remotes::install_github("tidyverse/tidyverse")' \
   && R -e 'remotes::install_gitlab("thedatacollective/tdcfun")' \
