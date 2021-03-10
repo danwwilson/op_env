@@ -40,9 +40,8 @@ RUN apt-get update \
     libpq-dev \
     libsqlite3-dev \
     libssh2-1-dev \
-    ssh \
     unixodbc-dev \
-    openssh-client \
+    openssh-server \
     mdbtools \
     libsnappy-dev \
     autoconf \
@@ -60,7 +59,8 @@ RUN apt-get update \
   && rm -rf /var/lib/apt/lists/*
 
 ## add regularly used packages
-RUN install2.r --error --skipinstalled -r $CRAN \
+RUN service ssh start \
+&& install2.r --error --skipinstalled -r $CRAN \
   devtools \
   rmarkdown \
   RcppEigen \
