@@ -39,5 +39,7 @@
     "default_encoding": "UTF-8",
     "spelling_dictionary_language": "en_AU",
     "posix_terminal_shell": "bash",
-    "editor_theme": "Crimson Editor"
+    "editor_theme": "Material",
+    "server_editor_font_enabled": true,
+    "server_editor_font": "Fira Code"
 }
