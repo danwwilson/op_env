@@ -103,8 +103,8 @@ RUN service ssh start \
   && R -e 'remotes::install_version("salesforcer", version = "0.1.4", repos = "http://cran.us.r-project.org")' \
   && R -e 'remotes::install_github("milesmcbain/fnmate")' \
   && R -e 'remotes::install_github("milesmcbain/capsule")' \
-  && R -e 'remotes::install_github("ropensci/targets")' \
-  && R -e 'remotes::install_github("ropensci/tarchetypes")' \
+  && R -e 'remotes::install_github("ropensci/targets", ref = "main")' \
+  && R -e 'remotes::install_github("ropensci/tarchetypes", ref = "main")' \
 ##  && R -e 'remotes::install_github("gaborcsardi/dotenv")' \
 ##  && R -e 'remotes::install_github("r-lib/hugodown")' \
   && rm -rf /tmp/downloaded_packages/ \
