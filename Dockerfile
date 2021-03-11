@@ -93,6 +93,7 @@ RUN service ssh start \
   languageserver \
   ## duckdb \
   pointblank \
+  fs \
   && R -e 'install.packages("data.table", type = "source", repos = "http://Rdatatable.github.io/data.table")' \
   && R -e 'remotes::install_github("tidyverse/tidyverse")' \
   && R -e 'remotes::install_gitlab("thedatacollective/tdcfun")' \
